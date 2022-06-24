@@ -21,7 +21,7 @@ Poin-poin di atas disebut dengan The Three Ways, yakni prinsip-prinsip yang mend
 
 
 
-The First Way: Prinsip Terkait Alur Kerja
+## The First Way: Prinsip Terkait Alur Kerja
 Dalam bidang IT, terutama yang berkaitan dengan pengembangan aplikasi, suatu “pekerjaan” umumnya mengalir dari kiri ke kanan, yakni dari Development hingga Operations (yang mana merupakan area fungsional antara bisnis dan pelanggan).
 
 Maka dari itu, prinsip DevOps pertama yang akan kita bahas adalah The First Way, yakni terkait alur kerja. Prinsip ini menjelaskan bahwa kita membutuhkan alur kerja yang cepat dan lancar dalam proses pengembangan aplikasi, mulai dari penulisan kode oleh Developer (Development), ke penyiapan infrastruktur dan proses deploy aplikasi oleh IT Operations (Operations), hingga akhirnya sampai di gadget pengguna/pelanggan (Customer) dan terasa manfaat atau nilai dari aplikasi/fitur/pembaruan perangkat lunak tersebut.
@@ -32,7 +32,7 @@ Intinya, tujuan dari The First Way ini adalah untuk memperbaiki alur kerja sehin
 
 
 
-The Second Way: Prinsip terkait Umpan Balik
+## The Second Way: Prinsip terkait Umpan Balik
 Jika The First Way menjelaskan tentang prinsip yang memungkinkan alur kerja yang lancar dan cepat dari kiri ke kanan (Development ke Operations), The Second Way ini mendeskripsikan prinsip yang memungkinkan feedback (umpan balik) yang cepat nan konstan dari kanan ke kiri (Operations ke Development).
 
 Pada prinsip ini, fokus utamanya adalah untuk meningkatkan jumlah feedback dan mempercepat proses penyampaian feedback (dari Operations ke Development) guna mencegah agar masalah tak terulang kembali, memungkinkan deteksi masalah lebih dini, serta pemulihan infrastruktur lebih cepat.
@@ -43,7 +43,7 @@ Nah, salah satu cara terbaik untuk mencapainya adalah dengan memiliki praktik se
 
 
 
-The Third Way: Prinsip terkait Proses Belajar dan Eksperimen yang Berkelanjutan
+## The Third Way: Prinsip terkait Proses Belajar dan Eksperimen yang Berkelanjutan
 Pembahasan yang ketiga adalah The Third Way, yakni prinsip terkait proses belajar dan eksperimen yang berkelanjutan. Prinsip ini menjelaskan tentang cara memupuk kultur untuk mendorong proses belajar dan eksperimen yang berkelanjutan. Selain itu, prinsip ini juga membenamkan pemahaman bahwa cara untuk menguasai sesuatu adalah melalui pengulangan dan berlatih terus-menerus.
 
 Tentu kita semua tahu bahwasanya eksperimen yang dilakukan terus-menerus bukanlah hal yang mudah untuk dilestarikan sebab membutuhkan keberanian dalam pengambilan risiko dan kelapangan hati dalam belajar (baik dari jika berhasil maupun gagal).
@@ -58,4 +58,4 @@ Jika kita mampu menerapkan The First Way dan The Second Way, kelak kita akan leb
 
 Apabila kita sudah terbiasa melakukan eksperimen dan belajar dari kesalahan, maka akan tercipta kultur untuk selalu ingin berinovasi dan berani dalam mengambil risiko.
 
-- Belajar Jaringan Komputer untuk Pemula# idCamp2022
+- Belajar Jaringan Komputer untuk Pemula
