@@ -1,0 +1,13 @@
+1. TC-SSK-1047 - Memilih dari Nama Lengkap Bank dan Periode di Pengurus BPR/S === Nama Lengkap Bank tidak bisa diganti ketika select Periode yang datanya tidak muncul.
+
+2. TC-SSK-1048 - Memilih Periode di Neraca BPR
+
+3. TC-SSK-1049 - Memilih Periode di Data BDPI/K Bank BPR/S 
+
+4. TC-SSK-1051 - Memilih Periode di DPK BPR/S
+
+5. TC-SSK-1052 - Memilih Periode Neraca Bank BPR/S
+
+6. TC-SSK-1055 - Memilih Nama Bank, dan Periode Data di KAP BPR/S
+
+(2,3,4,5,6) === Http failure response for https://ics.lps.go.id/tools/api/PowerBI/GetToken: 500 Internal Server Error Operation returned an invalid status code 'Forbidden' InternalServerError 

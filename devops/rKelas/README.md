@@ -261,243 +261,220 @@ Continuous delivery dan continuous deployment pada hakikatnya adalah proses yang
 
 
 
-DevOps Tools
+# DevOps Tools
 Dalam mendukung kesuksesan praktik DevOps di suatu perusahaan, ada beberapa kategori best practice yang perlu kita perhatikan berikut dengan tools yang sesuai untuk menerapkannya (akan dibagi antara tools yang bersifat umum dan AWS).
 
-Komunikasi dan Kolaborasi
+## Komunikasi dan Kolaborasi
 Berikut adalah beberapa tools yang bisa membantu mengimplementasikan komunikasi dan kolaborasi antartim di perusahaan.
 
-Platform komunikasi dan kolaborasi terpadu
-Berikut adalah beberapa contoh platform komunikasi dan kolaborasi terpadu (dibagi berdasarkan tools umum dan tools AWS).
+- ### Platform komunikasi dan kolaborasi terpadu
+  Berikut adalah beberapa contoh platform komunikasi dan kolaborasi terpadu (dibagi berdasarkan tools umum dan tools AWS).
 
-Umum	AWS
-Microsoft Teams
+   - #### Umum	
+     - Microsoft Teams  
+     - Slack 
+     - Workplace 
+     - Cisco Webex Teams
+   - #### AWS
+     - Amazon Chime
 
-Amazon Chime
+- ### Cloud
+  Alih-alih harus membeli dan memelihara perangkat-perangkat server secara fisik, Anda bisa dengan mudah membuat suatu environment (yang berisi server, jaringan, penyimpanan, dll) secara on-demand (sesuai permintaan) menggunakan cloud provider seperti AWS.
 
-Slack
+- ### IDE
+  Berikut adalah beberapa contoh IDE yang mendukung collaboration tool(dibagi berdasarkan tools umum dan tools AWS).
 
-Workplace
-
-Cisco Webex Teams
-
-Cloud
-Alih-alih harus membeli dan memelihara perangkat-perangkat server secara fisik, Anda bisa dengan mudah membuat suatu environment (yang berisi server, jaringan, penyimpanan, dll) secara on-demand (sesuai permintaan) menggunakan cloud provider seperti AWS.
-
-IDE
-Berikut adalah beberapa contoh IDE yang mendukung collaboration tool(dibagi berdasarkan tools umum dan tools AWS).
-
-Umum	AWS
-Visual Studio dengan fitur Live Share
-
-AWS Cloud9
-
-Intellij IDEA dengan fitur Code With Me
+  - #### Umum
+    - Visual Studio dengan fitur Live Share
+    - Intellij IDEA dengan fitur Code With Me
+  - #### AWS
+    - AWS Cloud9
 
 
 
-CI/CD
-Dalam poin CI/CD ini, tools yang digunakan dibagi menjadi beberapa kategori berdasarkan siklus DevOps pipeline.
+- ### CI/CD
+  Dalam poin CI/CD ini, tools yang digunakan dibagi menjadi beberapa kategori berdasarkan siklus DevOps pipeline.
 
-Code
-Berikut beberapa contoh version control system yang bisa Anda pakai (dibagi berdasarkan tools umum dan tools AWS).
+  - #### Code
+     Berikut beberapa contoh version control system yang bisa Anda pakai (dibagi berdasarkan tools umum dan tools AWS).
 
-Version Control System
+    - ##### Version Control System
 
-Umum
+      - Umum
+        - GitHub
+        - GitLab
+        - BitBucket
+      - AWS
+        - AWS CodeCommit
 
-AWS
+  
+- ### Build
+  Berikut beberapa contoh tools yang digunakan pada proses build (dibagi berdasarkan tools umum dan tools AWS).
 
-GitHub
-
-AWS CodeCommit
-
-GitLab
-
-BitBucket
-
-Build
-Berikut beberapa contoh tools yang digunakan pada proses build (dibagi berdasarkan tools umum dan tools AWS).
-
-Build Tools
-Umum
-
-AWS
-
-Jenkins
-
-AWS CodeBuild
-
-Travis CI
-
-CircleCI
-
-Test
-Tahapan test ini sebenarnya tergantung. Apabila sekadar unit test, maka itu bisa dilakukan saat proses build berlangsung. Namun, jika ingin melakukan load testing, kita perlu men-deploy-nya terlebih dahulu ke lingkungan testing dengan bantuan AWS CodeDeploy. Opsi lain, jika Anda menginginkan suatu pengujian yang spesifik, bisa juga memanfaatkan third-party tools dan mengintegrasikannya dengan AWS.
+  - #### Build Tools
+    - Umum
+      - Travis CI
+      - Jenkins
+      - CircleCI
+    - AWS
+      - AWS CodeBuild
 
 
-Release
-Kode aplikasi yang telah lolos pengujian kemudian disimpan ke repository, registry, atau storage dalam bentuk software packages, container image, dsb., dengan diberi nomor versi tertentu yang menandakan bahwa aplikasi sudah final dan siap di-deploy.
-
-Apabila artifact yang dimaksud berbentuk compressed file, kita bisa menaruhnya di object storage seperti Amazon S3. Akan tetapi, jika berbentuk container image, berikut adalah contoh tools yang bisa digunakan (dibagi berdasarkan tools umum dan tools AWS).
-
-Container Image Registry tools
-
-Umum
-
-AWS
-
-Docker Hub
-
-Amazon ECR
-
-Deploy
-Berikut adalah beberapa contoh tools yang bisa digunakan untuk deploy aplikasi (dibagi berdasarkan tools umum dan tools AWS).
-
-Deployment Tools
-Umum
-
-AWS
-
-Heroku
-
-AWS CodeDeploy
-
-Netlify
-
-AWS Elastic Beanstalk
-
-GitHub Pages
+- ### Test
+  Tahapan test ini sebenarnya tergantung. Apabila sekadar unit test, maka itu bisa dilakukan saat proses build berlangsung. Namun, jika ingin melakukan load testing, kita perlu men-deploy-nya terlebih dahulu ke lingkungan testing dengan bantuan AWS CodeDeploy. Opsi lain, jika Anda menginginkan suatu pengujian yang spesifik, bisa juga memanfaatkan third-party tools dan mengintegrasikannya dengan AWS.
 
 
-Monitor
-Berikut adalah beberapa contoh tools yang bisa digunakan untuk memantau aplikasi (dibagi berdasarkan tools umum dan tools AWS).
+- ### Release
+  Kode aplikasi yang telah lolos pengujian kemudian disimpan ke repository, registry, atau storage dalam bentuk software packages, container image, dsb., dengan diberi nomor versi tertentu yang menandakan bahwa aplikasi sudah final dan siap di-deploy.
 
-Monitoring Tools
-Umum
+  Apabila artifact yang dimaksud berbentuk compressed file, kita bisa menaruhnya di object storage seperti Amazon S3. Akan tetapi, jika berbentuk container image, berikut adalah contoh tools yang bisa digunakan (dibagi berdasarkan tools umum dan tools AWS).
 
-AWS
+  - ##### Container Image Registry tools
 
-Prometheus
+    - Umum
+      - Docker Hub 
 
-AWS X-Ray
+    - AWS
+      - Amazon ECR 
 
-Elastic Stack
 
-Amazon CloudWatch
 
-Dynatrace
+
+
+- ### Deploy
+  Berikut adalah beberapa contoh tools yang bisa digunakan untuk deploy aplikasi (dibagi berdasarkan tools umum dan tools AWS).
+
+  - #### Deployment Tools
+    - Umum
+      - Heroku 
+      - Netlify
+      - GitHub Pages
+
+    - AWS
+      - AWS CodeDeploy 
+      - AWS Elastic Beanstalk
+
+
+
+
+
+
+
+
+- ### Monitor
+  Berikut adalah beberapa contoh tools yang bisa digunakan untuk memantau aplikasi (dibagi berdasarkan tools umum dan tools AWS).
+
+  - #### Monitoring Tools
+    - Umum 
+      - Prometheus
+      - Elastic Stack
+      - Dynatrace
+    - AWS
+      - AWS X-Ray
+      - Amazon CloudWatch
 
 
 AWS CodePipeline adalah layanan continuous delivery yang memungkinkan kita untuk membuat model, memvisualisasikan, dan mengotomatiskan langkah-langkah yang diperlukan untuk merilis perangkat lunak. Dengan layanan ini, kita bisa mengonfigurasi tahapan-tahapan pada CI/CD pipeline sehingga memudahkan dalam proses pengembangan aplikasi.
 
 
 
-Infrastructure as Code
+### Infrastructure as Code
 Dalam pembahasan Infrastructure as Code ini, umumnya terdapat 2 kategori yang perlu kita bedah, yakni infrastructure automation dan configuration management.
 
-Infrastructure automation
-Infrastructure automation dalam hal ini adalah pembuatan infrastruktur dan sumber daya sejenis secara otomatis hanya dengan menggunakan kode. Dengan cara ini, baik Developer maupun IT Operations dapat berinteraksi dengan infrastruktur secara terprogram dalam skala besar, tanpa perlu mengonfigurasinya secara manual.
+- #### Infrastructure automation
+  Infrastructure automation dalam hal ini adalah pembuatan infrastruktur dan sumber daya sejenis secara otomatis hanya dengan menggunakan kode. Dengan cara ini, baik Developer maupun IT Operations dapat berinteraksi dengan infrastruktur secara terprogram dalam skala besar, tanpa perlu mengonfigurasinya secara manual.
 
-Berikut adalah contoh tools yang bisa digunakan untuk kategori infrastructure automation (dibagi berdasarkan tools umum dan tools AWS).
+  Berikut adalah contoh tools yang bisa digunakan untuk kategori infrastructure automation (dibagi berdasarkan tools umum dan tools AWS).
 
-Infrastructure automation tools
+  - #### Infrastructure automation tools
 
-Umum
+    - Umum
+      - Terraform
 
-AWS
-
-Terraform
-
-AWS CloudFormation
-
-Configuration management
-Berikut adalah beberapa contoh tools yang bisa digunakan pada kategori configuration management (dibagi berdasarkan tools umum dan tools AWS).
-
-Configuration management tools
-
-Umum
-
-AWS
-
-Chef
-
-AWS OpsWorks
-
-Puppet
-
-Ansible
-
-
-
-Arsitektur Microservices
-Ketika berbicara tentang microservice, akan ada dua topik hangat yang perlu kita bahas, yakni container dan serverless.
-
-Container
-Berikut adalah beberapa contoh tools yang bisa digunakan terkait container orchestration tools (dibagi berdasarkan tools umum dan tools AWS).
-
-Container Orchestration tools
-
-Umum
-
-AWS
-
-Kubernetes
-
-Amazon ECS
-
-OpenShift
-
-Amazon EKS
-
-Nomad
-
-
-Serverless
-Berikut adalah beberapa contoh tools yang bisa digunakan terkait serverless function as a service (dibagi berdasarkan tools umum dan tools AWS).
-
-Serverless Function as a Service tools
-
-Umum
-
-AWS
-
-Serverless
-
-AWS Lambda
-
-OpenFaaS
-
-OpenWhisk
-
-
-
-Monitoring dan Logging
-Berikut adalah beberapa contoh tools yang bisa digunakan terkait monitoring dan logging (dibagi berdasarkan tools umum dan tools AWS).
-
-Monitoring and Logging tools
-
-Umum
-
-AWS
-
-Prometheus
-
-AWS X-Ray
-
-Elastic Stack
-
-Amazon CloudWatch
-
-Dynatrace
+    - AWS
+      - AWS CloudFormation
 
 
 
 
-Kisah Implementasi DevOps
+
+- #### Configuration management
+  Berikut adalah beberapa contoh tools yang bisa digunakan pada kategori configuration management (dibagi berdasarkan tools umum dan tools AWS).
+
+  - #### Configuration management tools
+
+    - Umum
+      - Chef
+      - Puppet
+      - Ansible
+
+    - AWS
+      - AWS OpsWorks
 
 
-Pengantar Kisah Implementasi DevOps
+
+
+
+
+
+
+
+
+
+- #### Arsitektur Microservices
+  Ketika berbicara tentang microservice, akan ada dua topik hangat yang perlu kita bahas, yakni container dan serverless.
+
+  - ##### Container
+    Berikut adalah beberapa contoh tools yang bisa digunakan terkait container orchestration tools (dibagi berdasarkan tools umum dan tools AWS).
+
+    - Container Orchestration tools
+
+      - Umum
+        - Kubernetes
+        - OpenShift
+        - Nomad
+
+      - AWS
+        - Amazon ECS
+        - Amazon EKS
+
+
+- #### Serverless
+  Berikut adalah beberapa contoh tools yang bisa digunakan terkait serverless function as a service (dibagi berdasarkan tools umum dan tools AWS).
+
+  - #### Serverless Function as a Service tools
+
+    - #### Umum
+      - Serverless
+      - OpenFaaS
+      - OpenWhisk
+
+    - #### AWS
+      - AWS Lambda
+      
+
+
+
+
+  
+- #### Monitoring dan Logging
+  Berikut adalah beberapa contoh tools yang bisa digunakan terkait monitoring dan logging (dibagi berdasarkan tools umum dan tools AWS).
+
+  - #### Monitoring and Logging tools
+
+    - #### Umum
+      - Prometheus 
+      - Elastic Stack
+      - Dynatrace
+    - #### AWS
+      - AWS X-Ray
+      - Amazon CloudWatch
+
+
+# Kisah Implementasi DevOps
+
+
+## Pengantar Kisah Implementasi DevOps
 Kita sudah belajar banyak hal soal DevOps, mulai dari Pengenalan DevOps, Prinsip-Prinsip DevOps, hingga Metodologi DevOps.
 
 Namun, mungkin Anda punya pertanyaan pemungkas terkait DevOps yang sudah bergentayangan di benak Anda, “Apakah ada contoh bagaimana implementasi DevOps di suatu perusahaan ternama yang bisa kita jadikan contoh?”
@@ -510,15 +487,16 @@ Amazon merupakan salah satu contoh perusahaan yang awalnya menggunakan praktik p
 
 
 
-Transformasi DevOps pada Perusahaan Amazon
+# Transformasi DevOps pada Perusahaan Amazon
 Pada awal 2000-an, situs retail amazon.com merupakan website yang memiliki arsitektur monolitik dan dikembangkan melalui praktik pengembangan aplikasi tradisional. Selain itu, struktur perusahaan Amazon pun bersifat hierarkis, yakni terdiri dari tim Development (Developer), Testing (IT Tester atau QA), dan Operational (IT Operations) yang masing-masing terpisah dan tertutup satu sama lain (siloed team). Ditambah, aplikasi (dalam hal ini website amazon.com) di-deploy sebagai satu unit.
 
 Praktik pengembangan aplikasi yang dilakukan oleh Amazon sesungguhnya banyak masalah yang dapat menyulitkan mereka sendiri, seperti:
 
-antarkomponen aplikasi saling bergantung satu sama lain,
-proses QA (Quality Assurance) dilakukan secara manual,
-proses deployment berlangsung pelik nan rumit,
-dan lain-lain.
+1. antarkomponen aplikasi saling bergantung satu sama lain,
+2. proses QA (Quality Assurance) dilakukan secara manual,
+3. proses deployment berlangsung pelik nan rumit,
+4. dan lain-lain.
+
 Untungnya, Amazon segera menyadari bahwa proses pengembangan aplikasi mereka terhambat oleh arsitektur aplikasi dan struktur perusahaan. Pada akhirnya menjadi jelas bahwa ada sesuatu yang perlu diubah dan diperbaiki guna meningkatkan kecepatan pengembangan aplikasi dan kelancaran proses deployment. Dengan demikian, Amazon bisa terbebas dari urusan operasional aplikasi yang terus-menerus menghantui mereka dan lebih fokus pada kebutuhan pengguna. Tentu saja ini tidak terjadi dalam semalam, melainkan berproses secara bertahap.
 
 Amazon membentuk tim kecil yang lintas fungsional dan terdiri dari 8-10 orang bernama two-pizza teams (tim dua pizza). Unik ya namanya? Filosofi di balik penamaan two-pizza teams ini ialah Amazon mencoba untuk membuat tim yang tidak lebih besar dari yang bisa diberi makan oleh dua pizza. Pasalnya, semakin kecil tim, semakin baik kolaborasi akan tercipta. Kolaborasi yang baik tentu akan menghadirkan suasana yang mendukung untuk proses pengembangan aplikasi yang lebih cepat.
@@ -537,7 +515,7 @@ Tak hanya itu, Amazon juga membangun dan mengadopsi tools untuk memvisualisasika
 
 
 
-Hikmah dari Transformasi DevOps pada Perusahaan Amazon
+# Hikmah dari Transformasi DevOps pada Perusahaan Amazon
 Amazon–dan tentu perusahaan-perusahaan lain–telah beralih dari praktik pengembangan aplikasi tradisional yang telah mereka bangun dan lakukan bertahun-tahun ke kultur, praktik, dan tools DevOps. Mesti itu bukan perjalanan yang mudah dan singkat. Perlu upaya dan perjuangan serempak agar perusahaan mampu mengimplementasikan DevOps dan akhirnya mengenyam manfaat-manfaat yang semula tak dirasa.
 
 Amazon telah membuktikan bahwa dengan DevOps, perusahaan mereka dapat berinovasi, menghadirkan produk, dan tumbuh lebih cepat daripada perusahaan lain yang menggunakan praktik pengembangan aplikasi tradisional. Dengan cara ini, Amazon dapat melayani pelanggan mereka dengan lebih baik dan bersaing lebih efektif di pasar.
