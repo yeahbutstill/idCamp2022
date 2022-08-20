@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/a387-jarkom-labs" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/scripts" vcs="Git" />
   </component>
 </project>

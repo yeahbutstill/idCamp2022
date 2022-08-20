@@ -837,3 +837,7 @@ Lantas, bagaimana dengan encryption in transit? AWS sangat menyarankan untuk men
 AWS menyediakan HTTPS endpoint (alamat untuk mengakses suatu layanan atau service) menggunakan protokol TLS untuk semua layanan AWS. Nah, Anda dapat menggunakan AWS Certificate Manager (ACM) untuk membuat, mengelola, dan menerapkan certificate (nanti kita pelajari) yang Anda gunakan untuk membuat proses komunikasi antarsistem berlangsung aman dan terenkripsi.
 
 Dengan menggunakan layanan seperti AWS KMS dan AWS ACM, Anda dapat menerapkan strategi encryption at rest dan in transit yang komprehensif di seluruh ekosistem AWS guna memastikan semua data terlindungi dan dipastikan aman.
+
+```shell
+docker run --name mynginx2 --mount type=bind,source=/var/www,target=/usr/share/nginx/html,readonly --mount source=/var/nginx/conf,target=/etc/nginx/conf,readonly -p 80:80 -d nginx
+```
