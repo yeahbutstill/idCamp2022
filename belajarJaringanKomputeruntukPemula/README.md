@@ -722,3 +722,118 @@ Aturan ini disebut juga sebagai firewall rule. Dengan menetapkan firewall rule, 
 HTTPS kini telah menjadi standar bagi semua website yang ada di seluruh internet lantaran keamanannya. Bagaimana tidak, data yang dikirim melalui HTTPS akan dienkripsi guna meningkatkan keamanan proses transfer data. Ini sangat penting ketika pengguna mengirimkan data sensitif, seperti informasi kartu kredit, kredensial m-banking, email pribadi, atau catatan kesehatan.
 
 HTTPS merupakan gabungan dari dua protokol, yakni HTTP + TLS. TLS (Transport Layer Security) adalah protokol yang digunakan untuk mengamankan data yang dikirim melalui jaringan. Saat menggunakan protokol TLS, data yang dikirim akan dienkripsi sehingga siapa pun yang hendak melihat data tersebut niscaya takkan bisa memahaminya.
+
+---
+
+# Rangkuman Layanan Jaringan di AWS
+
+
+## Pengenalan Jaringan Virtual
+Di awal kelas, Anda sudah diberi tahu tentang apa itu jaringan (jaringan komputer). Ia merupakan kumpulan komputer atau perangkat keras lain yang saling terhubung, baik melalui kabel maupun nirkabel, sehingga memungkinkan mereka untuk bertukar informasi. Lantas, apa yang berbeda dengan jaringan virtual?
+
+Keduanya sama-sama jaringan, perbedaannya ada di kata “virtual”. Ya! Anda tak perlu lagi membeli kabel, router, switch, dan sebagainya untuk belajar jaringan. Pasalnya, semua itu bisa diakses virtual berkat teknologi virtualisasi.
+
+Ide dasar di balik virtualisasi adalah menggunakan perangkat lunak untuk menyimulasikan keberadaan perangkat keras.
+
+Jika Anda masih bingung, virtualisasi (virtualization) adalah teknologi yang memungkinkan kita untuk mengabstraksikan sumber daya yang secara tradisional terikat pada perangkat keras menjadi perangkat lunak yang berguna dan inovatif.
+
+Virtualisasi ini bisa terjadi sebab hadirnya hypervisor. Ia adalah suatu perangkat lunak (atau bisa juga perangkat keras) yang bertugas untuk memvirtualisasikan perangkat keras, umumnya berupa server. Satu perangkat server bisa dibuat menjadi puluhan, ratusan, bahkan hingga ribuan server virtual sekaligus berkat bantuan hypervisor.
+
+Jaringan pun bisa divirtualisasikan menjadi jaringan virtual dengan bantuan network hypervisor, yakni program yang menyediakan abstraksi untuk perangkat keras jaringan.
+
+Jadi, kenapa sih kita butuh jaringan virtual? Dengan jaringan virtual, segala beban terkait jaringan fisik bisa terbuang karena semuanya telah tersedia secara virtual. Intinya, Anda tetap memiliki perangkat jaringan, tetapi semua itu berada di suatu lokasi yang bisa dengan mudah Anda akses kapan saja melalui internet.
+
+
+
+## Jaringan Virtual di AWS
+Kali ini kita akan pelajari salah satu produk jaringan virtual yang tersedia di platform cloud computing Amazon Web Service (AWS) bernama Amazon VPC (Virtual Private Cloud).
+
+
+
+### Amazon VPC
+Amazon VPC atau Amazon Virtual Private Cloud adalah layanan jaringan virtual pribadi yang tersedia di AWS. Konsep yang berlaku pada Amazon VPC mirip seperti jaringan pada umumnya, terdapat router, network, subnet, gateway, firewall, NAT, CIDR notation, dsb. Hanya saja, semuanya dilakukan virtual.
+
+Dengan Amazon VPC, Anda diberikan kontrol konfigurasi jaringan yang lengkap dan menyeluruh. Anda bisa dengan bebas apakah ingin mengisolasi sumber daya (seperti server) dari internet untuk kebutuhan internal atau justru mengeksposnya ke publik agar bisa diakses khalayak umum. Kendati begitu, Amazon VPC memiliki kontrol keamanan berlapis. Anda dapat mengizinkan atau menolak lalu lintas tertentu, baik yang masuk maupun keluar dari jaringan Anda.
+
+Saat kita belajar soal Amazon VPC, ada beberapa konsep atau istilah yang perlu Anda kuasai, yuk kita selidiki satu per satu.
+
+- Virtual private cloud (VPC): Jaringan virtual yang didedikasikan untuk akun AWS Anda. Satu VPC mewakili satu Region.
+- Subnet: Rentang IP address di VPC Anda, digunakan untuk membagi jaringan di VPC. Satu subnet mewakili satu Availability Zone. Terdapat dua kategori: public subnet (dapat diakses publik) dan private subnet (hanya bisa diakses oleh internal, bukan publik).
+- CIDR block: Classless Inter-Domain Routing, yakni sebuah protokol pengalokasian dan perutean IP address (sudah kita pelajari sebelumnya).
+- Route table: Seperangkat aturan (yang disebut route) yang digunakan untuk menentukan ke mana lalu lintas jaringan diarahkan.
+- Internet gateway: Layanan yang bertindak seperti “gerbang” yang bisa Anda lampirkan untuk mengaktifkan akses ke internet dari VPC Anda.
+- NAT gateway: Layanan AWS yang memungkinkan server di private subnet untuk terhubung ke internet.
+- Security group: Bertindak sebagai firewall virtual untuk mengontrol lalu lintas yang masuk (inbound) dan keluar (outbound) dari sumber daya AWS (misal server).
+- Network access control list (ACL): Lapisan keamanan opsional untuk VPC yang bertindak sebagai firewall untuk mengontrol lalu lintas masuk dan keluar dari subnet.
+
+Masih banyak istilah-istilah dalam Amazon VPC lainnya. Akan tetapi, cukup itu saja untuk saat ini.
+
+
+
+## Web Server di AWS
+Web server adalah sebuah software (perangkat lunak) yang memberikan layanan berupa data. Ia berfungsi untuk menerima permintaan HTTP atau HTTPS (HTTP/HTTPS request) dari client atau kita kenal dengan web browser (Chrome, Firefox, Safari, dll.). Selanjutnya, web server akan memproses dan mengirimkan respons atas permintaan tersebut kepada client dalam bentuk halaman web.
+
+Nah, salah satu layanan dari AWS yang dapat mengabulkan keinginan kita untuk membuat sebuah web server adalah Amazon EC2. Penasaran layanan apa itu? Simak baik-baik.
+
+
+
+### Amazon EC2
+Amazon Elastic Compute Cloud atau Amazon EC2 merupakan salah satu layanan komputasi elastis di cloud yang ditawarkan oleh AWS (Amazon Web Services). Tunggu, apa maksudnya? Komputasi elastis? Cloud? Apa itu? Oke, mari kita mulai secara perlahan.
+
+Sederhananya, EC2 merupakan sebuah komputer server yang dapat Anda miliki, tetapi tidak dapat Anda sentuh fisiknya. Walaupun tak tampak secara fisik, komputer ini tetap bisa Anda operasikan di mana saja karena ia disimpan di awan (cloud) yang notabene awan dapat dilihat di mana saja.
+
+Namun, jangan salah kaprah ya. Cloud di sini hanya sebatas istilah. Sebenarnya, EC2 disimpan di data center milik AWS dengan infrastruktur jaringan yang sangat kuat sehingga server dapat diakses secara global dan sangat cepat.
+
+Selain itu, komputer server ini bersifat elastis karena ia dapat menyesuaikan kapasitas berdasarkan permintaan dari pengguna. Semakin banyak permintaan yang datang, semakin besar pula kapasitas server. Dengan begitu, server Anda tidak akan mengalami down jika tiba-tiba lalu lintas yang masuk membeludak.
+
+
+
+## Firewall di AWS
+Firewall adalah sebuah sistem yang bertindak sebagai penjaga keamanan dan berada di antara internet dan jaringan internal (lokal/pribadi/perusahaan) Anda.
+
+AWS memiliki layanan firewall yang begitu menarik nan powerful. Di AWS, ada dua layanan penting terkait firewall yang wajib kita pelajari, mereka adalah Network ACL dan Security Group. Keduanya merupakan firewall, tetapi memiliki cakupan dan fitur yang berbeda.
+
+
+
+### Network ACL
+Sama seperti firewall secara umum yang merupakan bagian dari penguatan jaringan (network hardening), Network ACL (access control list) termasuk salah satu layanan penguatan jaringan yang ada di AWS. Network ACL bertindak sebagai firewall virtual untuk mengontrol lalu lintas masuk dan keluar dari subnet di AWS.
+
+Network ACL ini bertugas untuk menjaga wilayah Subnet. Kita tahu bahwa ketika seorang client atau pelanggan melakukan request (permintaan), maka permintaan tersebut akan dikirim dalam bentuk packet jaringan. Jika Anda lupa, packet adalah sebuah unit data yang dikirim melalui internet atau jaringan.
+
+Mekanismenya, packet akan masuk ke VPC melalui Internet Gateway. Nah, sebelum packet dapat masuk atau keluar dari subnet, ia akan diperiksa terkait perizinannya. Pemeriksaan ini dilakukan untuk melihat apakah packet memiliki izin (permission) untuk masuk ke subnet atau tidak berdasarkan siapa pengirimnya (IP address) dan bagaimana ia mencoba berkomunikasi dengan sumber daya (misal EC2 instance) yang berada di subnet (protokol dan nomor port). Nah, komponen VPC yang memeriksa izin packet untuk subnet adalah Network ACL (access control list).
+
+Jika ternyata packet jaringan yang masuk mempunyai potensi yang dapat membahayakan sumber daya (misal EC2 instance) di dalam subnet, maka packet tersebut akan diblokir sebelum dapat masuk ke subnet di VPC.
+
+
+
+## Security Group
+Apabila Network ACL bertugas di wilayah subnet, Security Group ini bertanggung jawab untuk menjaga EC2 instance. Jadi, setelah packet jaringan berhasil lolos dari pemeriksaan yang dilakukan oleh Network ACL, selanjutnya ia akan diperiksa oleh Security Group sebelum akhirnya bisa masuk ke suatu instance.
+
+Security Group adalah firewall virtual yang mengontrol lalu lintas masuk dan keluar untuk Amazon EC2 instance. Persis seperti yang kita lakukan pada Latihan Membuat Web Server dengan Amazon EC2. Saat kita membuat Security Group dan hanya mengizinkan akses SSH, instance tersebut dapat diakses melalui SSH, tetapi tidak bisa diakses melalui protokol lain, semisal HTTP.
+
+
+
+# Domain Name System di AWS
+Kita sudah mempelajari proses yang terjadi di balik layar proses pencarian DNS atau disebut sebagai DNS resolution. Banyak komunikasi antarserver yang terjadi, mulai dari Recursive DNS Server, Root DNS Server, hingga Authoritative Name Server.
+
+Nah, di AWS, Anda bisa mengelola domain Anda sendiri menggunakan layanan yang bernama Amazon Route 53. Amazon Route 53 adalah layanan domain name system (DNS) di AWS yang highly available (selalu tersedia setiap saat) dan scalable (skalabilitasnya tinggi).
+
+Amazon Route 53 bertugas untuk menghubungkan permintaan pelanggan ke infrastruktur yang berjalan di AWS (misal Amazon EC2 instance). Bahkan, ia bisa pula mengarahkan pelanggan ke infrastruktur yang berada di luar AWS.
+
+Domain yang dikelola menggunakan layanan ini akan diatur dan ditangani oleh Route 53 name server, yakni Authoritative Name Server milik Amazon Route 53. Route 53 name servers ini tahu bagaimana cara merutekan lalu lintas untuk domain dan subdomain berdasarkan konfigurasi pada hosted zone (berisi DNS record yang Anda buat untuk domain tertentu yang menggunakan layanan Amazon Route 53).
+
+
+
+# Enkripsi di AWS
+Di AWS, terdapat dua istilah penting terkait enkripsi (encryption), yakni:
+
+- Encryption at rest: Proses enkripsi yang terjadi pada data yang tidak bergerak alias diam, seperti data yang disimpan di hard drive, flash drive, dan sebagainya.
+- Encryption in transit: Proses enkripsi yang terjadi pada data yang secara aktif berpindah dari satu lokasi ke lokasi lain, seperti halnya bergerak dari jaringan A ke jaringan Z melalui internet.
+
+AWS menyediakan beberapa opsi untuk proses encryption at rest, salah satunya adalah AWS KMS (Key Management Service). Layanan ini dapat digunakan untuk memudahkan Anda dalam membuat, mengelola, dan mengontrol encryption key yang Anda miliki untuk melindungi data.
+
+Lantas, bagaimana dengan encryption in transit? AWS sangat menyarankan untuk mengenkripsi data yang dalam keadaan in transit dari satu sistem ke sistem lainnya, termasuk sumber daya yang ada di dalam maupun di luar AWS.
+
+AWS menyediakan HTTPS endpoint (alamat untuk mengakses suatu layanan atau service) menggunakan protokol TLS untuk semua layanan AWS. Nah, Anda dapat menggunakan AWS Certificate Manager (ACM) untuk membuat, mengelola, dan menerapkan certificate (nanti kita pelajari) yang Anda gunakan untuk membuat proses komunikasi antarsistem berlangsung aman dan terenkripsi.
+
+Dengan menggunakan layanan seperti AWS KMS dan AWS ACM, Anda dapat menerapkan strategi encryption at rest dan in transit yang komprehensif di seluruh ekosistem AWS guna memastikan semua data terlindungi dan dipastikan aman.
