@@ -522,3 +522,88 @@ Contoh directed broadcast address dari 192.0.2.0/24 adalah 192.0.2.255 (bagian h
 
 ### Default Route Address
 Default route adalah rute yang berlaku ketika tidak ada rute lain yang tersedia untuk alamat tujuan IP. Default route di IPv4 dituliskan sebagai 0.0.0.0/0. Semua angka nol pada IP address (network ID) dan CIDR notation tersebut memiliki arti “semua jaringan” dan “semua host”.
+
+---
+
+# Rangkuman Domain Name System
+
+
+# Pengenalan Domain Name System
+Domain Name System atau biasa disingkat DNS adalah layanan jaringan yang tugasnya menerjemahkan nama domain (seperti www.dicoding.com) menjadi IP address.
+
+DNS pada dasarnya mirip seperti aplikasi kontak di dalam ponsel. Anda tentu tahu bahwa aplikasi tersebut biasanya berisi nama kontak disertai nomor telepon. Ketika ingin menelepon seseorang, kita tak perlu mengingat-ingat nomor teleponnya, melainkan cukup mencari nama kontaknya saja. Tentu saja aplikasi ini membuat hidup kita jauh lebih mudah ya karena tidak perlu menghafal nomor telepon setiap orang.
+
+Nah, DNS bekerja dengan cara yang sama, ia merupakan mekanisme yang memungkinkan kita untuk menelusuri situs web di internet. Sama seperti ponsel yang tidak tahu cara menelepon tanpa mengetahui nomor telepon orang yang dituju, browser juga tidak tahu cara membuka situs web hanya dengan nama domain; ia perlu mengetahui IP address dari situs web tersebut agar dapat dibuka. Sampai di sini paham, kan?
+
+Anda pasti setuju bahwa jauh lebih mudah mengetikkan nama domainnya–yakni www.dicoding.com–di browser daripada mengingat bahwa salah satu IP address dari situs tersebut adalah 216.239.38.120, bukan?
+
+
+
+# Anatomi Nama Domain
+Ketahuilah bahwa setiap nama domain atau domain name memiliki tiga bagian utama, yang mana masing-masing melayani tujuan tertentu. Mari kita ambil contoh salah satu nama domain ternama, yakni www.dicoding.com. Tentu Anda sudah familier, bukan?
+
+Apabila Anda perhatikan, nama domain www.dicoding.com punya tiga bagian yang seharusnya mudah dikenali lantaran masing-masing dipisahkan oleh titik, yakni www (subdomain), dicoding (domain), dan com (top level domain).
+
+Mungkin Anda akan menggumam, “Apa perbedaan di antara ketiganya, ya?” Oke, yuk kupas anatomi dari nama domain tersebut satu per satu!
+
+- Subdomain
+
+  Bagian www dari contoh www.dicoding.com dikenal sebagai subdomain. Secara teknis, Anda dapat memiliki banyak subdomain, contohnya host.sub.sub.subdomain.domain.com.
+
+- Domain
+
+  Bagian selanjutnya ialah Domain. Ia merupakan nama yang kerap digunakan untuk merujuk ke bagian kedua dari struktur nama domain. Dalam contoh www.dicoding.com, yang disebut domain adalah dicoding.
+
+- Top-Level Domain (TLD)
+
+  Top-Level Domain atau biasa disingkat TLD adalah bagian terakhir dari sebuah nama domain. Dalam contoh www.dicoding.com, bagian .com merupakan TLD.
+
+Saat Anda menggabungkan ketiga bagian di atas (Subdomain + Domain + TLD), maka itu disebut Fully Qualified Domain Name (FQDN). Jadi, contoh www.dicoding.com yang sedari tadi kita bincangkan merupakan FQDN.
+
+Setiap orang, perusahaan, atau bisnis mana pun bisa mendaftarkan dan memilih domain yang diinginkan (sesuai ketersediaan). Pendaftaran domain biasanya berada di bawah kendali Registrar atau Domain name registrar, yakni sebuah organisasi atau badan komersial yang bertugas menjadi tempat pendaftaran nama domain yang sudah diakreditasi oleh ICANN.
+
+
+
+# Cara Kerja DNS
+Berikut adalah proses DNS resolution saat kita membuka dicoding.com di browser.
+
+1. Saat Anda membuka dicoding.com di browser, hal pertama yang akan dilakukan browser adalah mengecek browser cache untuk melihat apakah di sana tersimpan IP address dari website dicoding.com. Apabila tidak ditemukan di browser cache, maka browser akan mengecek DNS cache dan Hosts file. Bila tidak ditemukan, maka langkah selanjutnya adalah menghubungi Recursive DNS Server.
+
+2. Jika Recursive DNS Server memiliki informasi IP address untuk dicoding.com di dalam cache miliknya, ia akan langsung memberikan informasi tersebut ke client dan takkan lanjut ke langkah berikutnya. Bila tidak ada di sana, Recursive DNS Server akan meneruskan permintaan ke Root DNS Server.
+
+3. Kemudian, Root DNS Server memberikan informasi tentang TLD Server yang sesuai (yakni .com TLD Server) ke Recursive DNS Server. Setelah mendapatkan informasi tentang TLD Server dari Root DNS Server, sekarang Recursive DNS Server akan menghubungi TLD Server tersebut.
+
+4. TLD Server kemudian memberikan informasi yang berkenaan dengan Authoritative Name Server yang sesuai (dicoding.com) ke Recursive DNS Server.  Setelah mendapatkan informasi tersebut, Recursive DNS Server pun langsung menghubungi Authoritative Name Server.
+
+5. Authoritative Name Server berisi informasi nama domain tertentu yang ia layani. Di sinilah kita bisa menemukan IP address dari nama domain dicoding.com. Authoritative Name Server pun kemudian memberikan IP address dari nama domain yang diminta (dicoding.com) ke Recursive DNS Server.
+
+6. Lalu, IP address yang diterima oleh Recursive DNS Server akan disimpan ke dalam cache untuk kurun waktu tertentu. Sehingga bila nanti datang permintaan yang sama dari client, ia tak perlu melakukan DNS resolution secara penuh lagi. Setelah itu, Recursive DNS Server memberikan IP address tadi ke client (browser).
+
+7. Usai menerima IP address, browser kemudian mengirimkan permintaan (request) untuk dicoding.com ke server Dicoding melalui IP address tersebut. Server Dicoding pun memproses dan mengembalikan respons berupa halaman web untuk dicoding.com ke browser. Browser lantas memuat/menampilkan halaman dicoding.com ke hadapan pengguna.
+
+
+
+# Tipe-Tipe DNS Record
+DNS record adalah instruksi yang memberikan informasi tentang domain, termasuk IP address apa yang terkait dengan suatu domain dan bagaimana cara menangani permintaan untuk domain tersebut.
+
+Sebelum rasa penasaran Anda semakin memuncak, yuk langsung saja kita telusuri masing-masing DNS record tersebut berikut.
+
+- A record
+
+  A record atau Address record adalah sebuah record (catatan) yang menyimpan IP address dari suatu domain.
+
+- AAAA record
+
+  AAAA record berisi IPv6 address untuk suatu domain (kebalikan dari A record yang berisi IPv4 address). Tipe record yang satu ini hanya digunakan saat domain memiliki IPv6 address selain IPv4 address, juga saat perangkat client yang bersangkutan dikonfigurasi untuk menggunakan IPv6.
+
+- CNAME record
+
+  CNAME (canonical name) record adalah sebuah record yang memungkinkan kita untuk mengarahkan suatu domain atau subdomain ke domain lain. Tipe record ini juga kerap disebut alias record.
+
+- MX record
+
+  MX (mail exchange) record adalah suatu record yang mengarahkan email ke mail server (server email) tertentu. MX record mengindikasikan bagaimana pesan email harus ditangani sesuai dengan SMTP (Simple Mail Transfer Protocol), yakni protokol standar untuk semua email. Layaknya CNAME record, MX record juga mesti selalu mengarah ke domain lain.
+
+- NS record
+
+  NS (nameserver) record adalah suatu record yang menyimpan informasi terkait Authoritative Name Server mana yang bertanggung jawab atas suatu domain tertentu. Pada dasarnya, NS record memberi tahu Anda lokasi Authoritative Name Server untuk mengetahui IP address dari suatu nama domain. Sebuah nama domain acap kali memiliki lebih dari satu NS record yang menunjukkan Authoritative Name Server primer dan sekunder untuk domain tersebut. Tanpa mengonfigurasi NS record dengan benar, pengguna tak akan bisa memuat website atau aplikasi.
