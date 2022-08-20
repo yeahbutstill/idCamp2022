@@ -330,3 +330,195 @@ Katakanlah kita ingin membuka website www.dicoding.com melalui web browser yang 
 
     Sesuai namanya, physical layer bertanggung jawab untuk mengirim dan menerima data secara fisik. Ada banyak caranya, bisa melalui gelombang radio (Wi-Fi), sinyal cahaya (Fiber optic), dan lain-lain. Data yang tadi dikirim dari data link layer kemudian di-encode (dikodekan) ke dalam bit (1 dan 0), lalu ditransmisikan melalui media fisik.
 
+---
+
+# Rangkuman IP Address
+
+
+## Pengenalan IP Address
+Semua perangkat yang terhubung ke internet masing-masing memiliki alamat yang unik. Alamat di internet hanyalah sebuah angka, tetapi unik dan berbeda-beda untuk setiap komputer atau perangkat jaringan. Konsepnya mirip seperti alamat rumah. Jika Anda ingin mengirim surat ke kawan, yang harus Anda ketahui pasti adalah alamat rumahnya, bukan? Selain itu, Anda juga mengerti bagaimana cara menulis alamat dengan benar sehingga surat tersebut dapat dibawa oleh petugas pos ke tujuannya dengan tepat.
+
+Sistem pengalamatan untuk komputer di internet pun serupa dengan itu. Salah satu protokol terpenting yang digunakan dalam komunikasi di internet adalah IP (Internet Protocol) dan alamat komputer disebut IP address. IP address digunakan untuk pengalamatan packet sehingga mereka dapat melakukan perjalanan melintasi jaringan dan tiba di tujuan yang benar.
+
+Bentuk IP address yang kita bahas adalah IPv4. IPv4 address memiliki panjang 32 bit yang terdiri dari 4 oktet, di mana setiap oktet biasanya dituliskan dalam angka desimal. 8 bit data (atau satu oktet) mewakili angka desimal dari 0 hingga 255.
+
+Misalnya, 12.34.56.78 merupakan IPv4 address yang valid, sementara 123.456.789.100 tidak. Pasalnya, 123.456.789.100 memiliki angka yang lebih besar daripada yang dapat diwakili oleh 8 bit.
+
+Format ini dikenal sebagai dotted decimal notation alias notasi desimal bertitik. Kita akan pelajari hal ini lebih jauh nanti dalam submodul konsep subnetting.
+
+
+
+## Masalah pada IPv4
+Saat ini internet sedang mengalami masalah yang cukup besar. Salah satu masalah utama adalah kita kehabisan IPv4 address. Seperti yang kita pelajari sebelumnya, IPv4 address memiliki panjang 32 bit. Artinya, ia hanya memiliki 232 atau sekitar 4 miliar IP address.
+
+Bila dibayangkan sekilas, mungkin angka 4 miliar begitu besar ya. Akan tetapi, seperti yang dikisahkan pada modul pertama soal sejarah internet, internet ternyata jauh lebih populer daripada yang dibayangkan saat awal mula diciptakan. Faktanya, 4 miliar IP address tidaklah cukup.
+
+Nah, masalah kehabisan IPv4 address dimulai pada 31 Januari 2011. Saat itu, IANA mengalokasikan 2 blok IPv4 address ke APNIC, yang kemudian memicu kebijakan global untuk mengalokasikan sisa kumpulan alamat yang dimiliki IANA di antara lima RIR secara merata.
+
+Tak selang lama kemudian, Number Resource Organization (NRO) mengumumkan bahwa kumpulan IPv4 address sudah sepenuhnya habis. Ini artinya sudah tidak ada lagi IPv4 address yang tersedia untuk pengalokasian dari IANA ke lima RIR.
+
+Setelah itu, lambat laun akhirnya semua RIR pun kehabisan kumpulan IPv4 address, kecuali yang disimpan untuk transisi ke IPv6 (akan kita bahas nanti). Peristiwa ini terjadi pada 15 April 2011 untuk APNIC, 10 Juni 2014 untuk LACNIC, 24 September 2015 untuk ARIN, 21 April 2017 untuk AFRINIC, dan 25 November 2019 untuk RIPE NCC.
+
+
+
+## Solusi untuk IPv4
+### Solusi 1: CIDR
+CIDR atau Classless Inter-Domain Routing adalah metode untuk mengalokasikan IP address dan untuk perutean IP. Sebuah organisasi bernama Internet Engineering Task Force (IETF) memperkenalkan CIDR pada tahun 1993, di mana salah satu tujuannya adalah untuk membantu memperlambat masalah kehabisan IPv4, dan itu berhasil!
+
+Selain itu, pengadopsian CIDR ini juga dimaksudkan untuk menggantikan metode pengalamatan sebelumnya, yakni classful addressing. Oke, sebelum kita lebih dalam membahas CIDR atau classless, mari kita tilik dulu sekilas tentang pengalamatan dengan metode classful yuk agar Anda memahami konteks materi yang disampaikan.
+
+CIDR merupakan pendekatan yang lebih fleksibel untuk mendeskripsikan rentang IP address. Saat berbicara tentang CIDR, kita akan sering menemukan notasi garis miring yang dikenal sebagai CIDR notation.
+
+Butuh contoh? Oke, mari kita ambil contoh IP address yang sama seperti sebelumnya, yakni 9.100.100.100. Katakanlah IP address ini memiliki subnet mask 255.255.255.0. Nah, berkat CIDR notation, IP address tersebut kini dapat ditulis sebagai 9.100.100.100/24. Karena sekarang kita tidak lagi peduli dengan classful addressing, yang kita butuhkan kini adalah network mask untuk menentukan network ID. Dalam contoh kita, berarti network ID-nya adalah 9.100.100.x, sedangkan host ID-nya adalah x.x.x.100.
+
+### Solusi 2: NAT
+NAT alias Network Address Translation adalah sebuah teknik di mana satu IP address diterjemahkan ke IP address yang lain. NAT telah digunakan banyak pihak untuk berbagai tujuan, mulai dari perlindungan keamanan hingga membantu memperlambat masalah kehabisan IPv4 address. Di modul ini, kita hanya akan fokus membahas NAT dari sisi fungsinya sebagai solusi untuk masalah kehabisan IPv4 address.
+
+NAT menerjemahkan private IP address ke public IP address. Dengan demikian, meski kita memiliki banyak perangkat di rumah dan semua terhubung ke internet (misal melalui Wi-Fi), mereka hanya akan memiliki satu public IP address.
+
+Berkat hadirnya NAT, kini kita bisa memiliki ratusan bahkan ribuan perangkat yang menggunakan private IP address, tetapi semuanya dapat terhubung ke internet hanya dengan satu public IP address.
+
+### Solusi 3: IPv6
+Pada pertengahan 1990-an, masalah habisnya IPv4 address sudah menjadi perhatian banyak pihak. Oleh sebab itu, IP versi baru pun dikembangkan, yakni Internet Protocol version 6 (IPv6).
+
+Perbedaan terbesar antara IPv4 dan IPv6 adalah jumlah bit pada alamatnya. Tentu Anda masih ingat bahwa IPv4 address memiliki total 32 bit, yang artinya mungkin ada sekitar 4 miliar IP address yang bisa digunakan.
+
+Lantas, bagaimana dengan IPv6? IPv6 address berukuran 128 bit. Ini merupakan hal yang mencengangkan! Apabila kita hitung, 2128 berarti menghasilkan angka yang sangat panjang, yaitu 39 digit. Rentang angka ini disebut Undecillion.
+
+IPv6 address berukuran 128 bit, biasanya ditulis dalam 8 grup, masing-masing grup berukuran 16 bit, dan setiap grup tersebut terdiri dari 4 bilangan heksadesimal.
+
+Seperti inilah bentuk IPv6 address secara lengkap:
+
+2001:0db8:0000:0000:0000:ff00:0012:3456
+
+
+
+## Konsep Subnetting
+Dalam istilah yang paling dasar, subnetting adalah proses membagi jaringan besar menjadi beberapa jaringan yang lebih kecil yang disebut segmen jaringan atau subnetwork/subnet.
+
+Subnet adalah bagian dari suatu jaringan. Sebagai contoh, Jaringan A memiliki blok IP 172.16.0.0/16. Itu artinya, jaringan tersebut memiliki rentang IP address yang begitu besar, yakni dari 172.16.0.0 hingga 172.16.255.255 atau sekitar 65.536 IP address.
+
+Nah, alih-alih memiliki satu jaringan yang besar, kita bisa membuat bagian yang lebih kecil (subnet) dari jaringan tersebut, misal 172.16.1.0/24. Jadi, subnet 172.16.1.0/24 merupakan bagian dari Jaringan A 172.16.0.0/16. Itulah mengapa disebut subnet.
+
+
+
+## Subnet Mask
+Subnet mask adalah angka yang menyerupai IP address, tetapi dengan fungsi yang berbeda. Subnet mask menjelaskan berapa banyak bit dalam IP address yang digunakan untuk network ID dengan menutupi bagian network ID itu sendiri.
+
+Contoh, IP address 192.168.1.0 dengan subnet mask 255.255.255.0 menerangkan bahwa network ID pada IP address tersebut adalah 192.168.1.x. Oh ya, tahukah Anda? Di dunia komputer dan jaringan, IP address dan subnet mask dalam format desimal seperti ini sesungguhnya tidak ada artinya, lo. Pasalnya, komputer dan jaringan hanya memahami angka dalam format bilangan biner, yaitu 1 dan 0. Ini disebut juga sebagai bit.
+
+Subnet mask dapat ditulis menggunakan cara yang lebih pendek yang disebut CIDR notation (sudah kita pelajari). Ini dilakukan dengan menulis garis miring (slash) diikuti total bilangan biner “1” yang ada di subnet mask. Misalnya, pada contoh IP address dan subnet mask sebelumnya (192.168.1.0 dan 255.255.255.0), kita bisa tuliskan secara lebih singkat sebagai 192.168.1.0/24.
+
+
+
+## Studi Kasus: Subnetting
+Katakanlah Anda bekerja pada perusahaan rintisan X. Perusahaan ini memiliki sebuah private network (jaringan pribadi) dengan blok IP 192.168.1.0/24. Dari blok IP tersebut, perusahaan meminta Anda untuk mencari tahu beberapa hal berikut:
+
+1. Berapa subnet mask-nya?
+2. Mana bagian network ID dan host ID-nya?
+3. Berapa subnet yang bisa dibuat?
+4. Berapa jumlah host yang bisa dipakai per subnet?
+
+Yuk langsung meluncur ke jawaban!
+
+1. Subnet Mask
+Dengan melihat blok IP 192.168.1.0/24, kita bisa fokus pada CIDR notation-nya, yakni /24. Itu artinya, ada 24 angka “1” dalam bilangan biner. Jadi, subnet mask-nya adalah sebagai berikut: 11111111.11111111.111111111.0000000.
+
+
+2. Network ID dan Host ID
+Setelah mengetahui subnet mask, kini kita bisa mengidentifikasi mana bagian network ID dan mana bagian host ID. Simpel, dalam kasus ini, setiap oktet pada IP address yang selaras dengan angka 1 pada subnet mask dalam biner adalah network address (network ID), sisanya host ID.
+
+192.168.1.0
+11111111.11111111.111111111.0000000
+
+Jadi, 192.168.1.x adalah network ID, dan x.x.x.0 adalah host ID.
+
+
+3. Jumlah Subnet
+Untuk menghitung jumlah subnet, kita bisa menggunakan rumus 2x (di mana x adalah banyaknya angka 1 dalam oktet terakhir di subnet mask). Mari kita hitung.
+
+Dari subnet mask 11111111.11111111.111111111.0000000, oktet terakhirnya adalah 0000000. Karena tidak ada angka 1 di sana, berarti 20 = 1. Jadi, dalam kasus kita, subnet yang bisa dibuat hanyalah 1.
+
+Contoh lain, apabila subnet mask-nya adalah /27 atau 11111111.11111111.11111111.11100000, maka 23 = 8 subnet.
+
+
+4. Jumlah Host per Subnet
+Jumlah host per subnet bisa kita ketahui melalui rumus (2y)-2 (di mana y adalah banyaknya angka 0 dalam oktet terakhir di subnet mask). Begini perhitungannya.
+
+Dari subnet mask 11111111.11111111.111111111.0000000, oktet terakhirnya adalah 0000000. Itu artinya, (28)-2 = 256-2 = 254 host per subnet.
+
+Coba kita pakai contoh yang berbeda. Apabila subnet mask-nya adalah /27 atau 11111111.11111111.11111111.11100000, maka (25)-2 = 32-2 = 30 host per subnet.
+
+Mungkin saat ini ada pertanyaan yang mengganjal di hati Anda, “Kenapa harus dikurangi 2?” Jawabannya karena ada 2 IP address yang tidak bisa dipakai oleh host, yakni network address dan broadcast address.
+
+Dalam kasus 192.168.1.0/24, network address-nya adalah 192.168.1.0 dan broadcast address-nya adalah 192.168.1.255. Kita akan pelajari keduanya di modul yang akan datang.
+
+Jadi, rentang IP address yang valid untuk host adalah 192.168.1.1–192.168.1.254.
+
+Catatan: Di beberapa kasus, rumus menghitung host per subnet tidak selalu dikurangi 2, bisa jadi dikurangi 3, 4, bahkan 5. Ini karena beberapa IP address dari host ID digunakan untuk gateway router, DNS server, atau bahkan disimpan untuk penggunaan di masa mendatang.
+
+Itulah studi kasus kita dalam materi subnetting. Perlu Anda ingat bahwa dunia subnetting itu luas. Masih banyak contoh-contoh lain yang mungkin levelnya lebih rumit dan kompleks. Namun, untuk saat ini, itu saja yang perlu Anda ketahui.
+
+
+
+## Gambaran Umum tentang DHCP
+DHCP adalah protokol application layer yang bertugas untuk mengotomatiskan proses konfigurasi host (perangkat) di suatu jaringan. Dengan DHCP, host dapat meminta IP address ke DHCP server saat terhubung ke jaringan dan kemudian menerima semua konfigurasi jaringan yang diperlukan.
+
+Ada beberapa metode bagaimana DHCP beroperasi, di antaranya adalah dynamic allocation, automatic allocation, dan fixed allocation. Mari kita arungi satu per satu.
+
+- Dynamic allocation
+Metode yang satu ini adalah yang paling umum dan bekerja seperti pada gambar di atas. Jadi, rentang IP address akan ditetapkan untuk perangkat client. Nantinya, salah satu IP address tersebut akan diberikan jika ada client yang memintanya. Dengan dynamic allocation, IP address untuk masing-masing komputer bisa berbeda-beda setiap kali terhubung ke jaringan.
+
+
+- Automatic allocation
+Metode ini mirip dengan dynamic allocation, yakni rentang IP address ditetapkan untuk nantinya diberikan ke client. Perbedaan utamanya, dalam metode automatic allocation DHCP server diminta untuk melacak IP address mana yang ditetapkan untuk perangkat client tertentu di masa lalu. Dengan menggunakan informasi tersebut, DHCP server akan menetapkan IP address yang sama ke client yang sama setiap kali diminta.
+
+
+- Fixed allocation
+Jika ingin menggunakan metode fixed allocation, kita perlu membuat daftar MAC address setiap perangkat beserta IP address yang sesuai secara manual.
+
+  Saat client meminta IP address, DHCP server akan mencari MAC address si client di dalam tabel. Jika ketemu, DHCP server kemudian memberikan IP address yang cocok/sesuai.
+Namun, apabila MAC address tidak ditemukan, DHCP server akan menggunakan metode dynamic atau automatic allocation. Bahkan, mungkin saja tidak memberikan IP address sama sekali. Dengan begitu, metode ini bisa digunakan untuk meningkatkan keamanan dengan memastikan bahwa hanya perangkat yang memiliki MAC address terdaftar saja yang akan memperoleh IP address dan berkomunikasi di jaringan.
+
+
+## Reserved IPv4 Address
+### Network Address
+Network address menunjukkan mana bagian network ID dan mana host ID. Misalnya, pada contoh IP address 192.168.10.0/24:
+
+- 192.168.10.x adalah bagian network ID, dan
+- x.x.x.0 adalah bagian host ID, yang merepresentasikan semua host yang ada di jaringan.
+
+Network address kerap dipakai untuk menunjukkan rentang IP address pada suatu network (jaringan) atau subnet (segmen jaringan). Sebagai contoh, jika suatu jaringan memiliki blok IP 192.168.10.0/24, itu artinya ia bisa menampung host mulai dari 192.168.10.1 hingga 192.168.10.254, di mana 192.168.10.0 adalah network address dan 192.168.10.255 adalah broadcast address (akan kita bahas di submodul ini nanti).
+
+## Private IP Address
+Beberapa IP address yang termasuk dalam kategori private IP address tidak dapat dirutekan oleh router di internet. Ia hanya bisa digunakan untuk jaringan pribadi, kampus, perusahaan, atau jaringan apa pun yang tidak terhubung ke internet.
+
+Berikut adalah beberapa rentang alamat yang terdaftar sebagai private IP address:
+
+| Blok IPv4 Address | Rentang Alamat |
+| ----------- | ----------- |
+| 10.0.0.0/8 | 10.0.0.0–10.255.255.255 |
+| 172.16.0.0/12 | 172.16.0.0–172.31.255.255 |
+| 192.168.0.0/16 | 192.168.0.0–192.168.255.255 |
+
+Dengan menggunakan private IP address dalam LAN, kebutuhan IPv4 address secara global telah menurun secara signifikan, yang berarti berhasil membantu menunda habisnya IPv4 address.
+
+### Loopback IP Address
+Blok IP address 127.0.0.0/8 (atau jika ditulis dalam rentang IP address berarti 127.0.0.0–127.255.255.255) ditujukan untuk loopback, yaitu alamat dirinya sendiri. Loopback IP address juga dikenal sebagai localhost address (mungkin sebagian dari Anda lebih familier).
+
+### Link-local Address
+Submodul sebelumnya telah menerangkan tentang DHCP yang bertugas untuk memberikan IP address ke client atau host secara dinamis. Nah, mungkin Anda bertanya-tanya, “Bagaimana jika ternyata sebuah host tidak memperoleh IP address dari DHCP server dan belum diberikan IP address apa pun secara manual?” Di sinilah Anda akan menemukan jawabannya.
+
+Jadi, host dapat menetapkan IP address sendiri dari rentang Link-local address yang berkisar dari 169.254.0.0–169.254.255.255 (169.254.0.0/16).
+
+### Broadcast Address
+Broadcast address adalah IP address yang memungkinkan data atau pesan dikirim secara bersamaan ke semua host pada segmen jaringan (subnet) tertentu daripada ke satu host saja. Ada dua jenis broadcast address pada IPv4:
+
+- ### Limited broadcast
+Contoh limited broadcast address adalah 255.255.255.255. Disebut "limited” alias “terbatas" karena IP address ini tidak pernah dirutekan atau diteruskan oleh router.
+
+- ### Directed broadcast
+Contoh directed broadcast address dari 192.0.2.0/24 adalah 192.0.2.255 (bagian host ID diatur menjadi semua “1” dalam biner atau semua 255 dalam desimal). Directed broadcast adalah sebuah pesan siaran (broadcast) yang dikirim ke semua perangkat yang ada di suatu jaringan.
+
+### Default Route Address
+Default route adalah rute yang berlaku ketika tidak ada rute lain yang tersedia untuk alamat tujuan IP. Default route di IPv4 dituliskan sebagai 0.0.0.0/0. Semua angka nol pada IP address (network ID) dan CIDR notation tersebut memiliki arti “semua jaringan” dan “semua host”.
